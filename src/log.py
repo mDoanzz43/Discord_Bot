@@ -2,7 +2,7 @@ import json
 import os
 from datetime import datetime
 
-# GHi lại thông tin người dùng, câu hỏi, phản hồi vào file activity_log.json
+# Ghi lại thông tin người dùng, câu hỏi, phản hồi vào file activity_log.json
 def log_activity(user, question, response):
     log_entry = {
         "timestamp": datetime.now().isoformat(),
@@ -19,3 +19,4 @@ def log_activity(user, question, response):
     logs.append(log_entry)
     with open(log_file, 'w', encoding = 'utf-8') as f:
         json.dump(logs, f, ensure_ascii = False, indent = 2)
+        
