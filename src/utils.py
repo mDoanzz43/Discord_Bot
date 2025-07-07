@@ -14,8 +14,7 @@ def load_document(file_path):
     return text_splitter.split_documents(documents)
 
 
-file_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
-    
+# file_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"    
 # if not os.path.exists(file_path):
 #     print("File hasn't exist")
 # else: 
