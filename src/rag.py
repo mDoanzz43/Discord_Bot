@@ -16,7 +16,7 @@ def setup_rag(data_path):
     # Create embedding 
     embeddings = HuggingFaceEmbeddings(model_name = "intfloat/multilingual-e5-small")
     
-    # Create FAISS vector store
+    # Create FAISS vector store 
     vector_store = FAISS.from_documents(documents=document, embedding = embeddings)
     
     # Create bộ retriever 
@@ -26,13 +26,13 @@ def setup_rag(data_path):
     
     Trả lời câu hỏi: {question}
     
-    Nếu không có thông tin liên quan, hãy nói: "Tôi không tìm thấy thông tin liên quan trong cơ sở tri thức. Hãy cung cấp thông tin cho tôi được không? Cảm ơn bạn!!
+    "Tôi không tìm thấy thông tin liên quan trong cơ sở tri thức. Hãy cung cấp thông tin cho tôi được không? Cảm ơn bạn!!
     """
     prompt = PromptTemplate.from_template(template)
     
     # Initialize Gemini LLM
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GEMINI_API_KEY"))
-    
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=os.getenv("GEMINI_API_KEY"))
+
     # Create RAG Chain
     rag_chain = (
         {"context": retriever | (lambda docs: "\n".join(doc.page_content for doc in docs)), "question": RunnablePassthrough()}
@@ -47,7 +47,6 @@ def query_rag(rag_chain, question):
 
 # data_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
     
-
 if __name__ == "__main__":
     file_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
     rag_chain = setup_rag(file_path)
