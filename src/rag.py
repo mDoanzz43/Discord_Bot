@@ -20,11 +20,13 @@ def setup_rag(data_path):
     vector_store = FAISS.from_documents(documents=document, embedding = embeddings)
     
     # Create bộ retriever 
-    retriever = vector_store.as_retriever(search_kwargs = {"k": 1})
+    retriever = vector_store.as_retriever(search_kwargs = {"k": 2})
     
-    template = """ Dựa trên thông tin sau {context}
+    template = """ Bạn là trợ lý ảo thân thiện, trả lời súc tích ngắn gọn và dễ hiểu.
     
-    Trả lời câu hỏi: {question}
+    Dựa trên thông tin có sẵn sau: {context}
+    
+    Hãy trả lời câu hỏi: {question}
     
     "Tôi không tìm thấy thông tin liên quan trong cơ sở tri thức. Hãy cung cấp thông tin cho tôi được không? Cảm ơn bạn!!
     """
@@ -47,10 +49,10 @@ def query_rag(rag_chain, question):
 
 # data_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
     
-if __name__ == "__main__":
-    file_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
-    rag_chain = setup_rag(file_path)
-    print("Nhập câu hỏi bạn muốn hỏi: ")
-    question = input()
-    response = query_rag(rag_chain, question)
-    print(response)
+# if __name__ == "__main__":
+#     file_path = "D:\STUDY\DISCORD_BOT\Documents\information_client_basic.docx"
+#     rag_chain = setup_rag(file_path)
+#     print("Nhập câu hỏi bạn muốn hỏi: ")
+#     question = input()
+#     response = query_rag(rag_chain, question)
+#     print(response)
