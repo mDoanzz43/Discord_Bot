@@ -4,6 +4,7 @@ Discord Bot sử dụng RAG để truy vấn thông tin nội bộ
 - Chatbot có thể trả lời các câu hỏi của client trong server Discord
 - Chatbot có thể update và cập nhật dữ liệu của client trong server
 - Chatbot có thể chào mừng new member mỗi khi có 1 ai đó join 
+- Deploy 
 ....
-- Chatbot có thể duy trì được mà tôi không cần mở không 
-Tôi muốn làm free mọi thứ 
+
+ 
